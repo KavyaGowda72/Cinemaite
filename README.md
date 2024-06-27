@@ -17,13 +17,18 @@
 
 # Cinemaite
 
-    Create React App
-    Configured TailwindCSS
-    Header
-    Routing of App
-    Login Form
-    Sign up Form
-    Form Validation
-    useRef Hook
-    Firebase Setup
-    Deploying our app to production
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create sign-up useraccount
+- sign-in user api
+- Setup Redux store/userSlice
+- Implement Log out
+- Update api
