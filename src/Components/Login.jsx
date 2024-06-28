@@ -7,14 +7,15 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../Slices/userSlice";
+import { Background_Image, User_Logo } from "../Utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -39,14 +40,15 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/144582374?v=4",
+            photoURL: User_Logo,
           })
             .then(() => {
               // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
+              // console.log("auth.currentUser", auth.currentUser);
               dispatch(
                 addUser({
                   uid: uid,
@@ -55,7 +57,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("./browse");
             })
             .catch((error) => {
               // An error occurred
@@ -76,8 +77,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("./browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -96,10 +95,7 @@ const Login = () => {
         <Header />
 
         <div className="absolute ">
-          <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/2f8ae902-8efe-49bb-9a91-51b6fcc8bf46/IN-en-20240617-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-            alt="back-logo"
-          />
+          <img src={Background_Image} alt="back-logo" />
         </div>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -131,7 +127,7 @@ const Login = () => {
           />
           <p className="text-red-700 py-2 m-2 font-semibold">{errorMessage}</p>
           <button
-            className="p-2 m-2 bg-red-600 rounded-lg"
+            className="p-2 m-2 bg-red-600 rounded-lg hover:bg-red-700"
             onClick={handleButtonCLick}
           >
             {isSignIn ? "Sign In" : "Sign Up"}
