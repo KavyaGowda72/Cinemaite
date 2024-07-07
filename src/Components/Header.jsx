@@ -62,28 +62,19 @@ const Header = () => {
   };
   return (
     <>
-      <div className="absolute w-screen  bg-black  h-20  px-8 py-2 z-20 flex flex-col justify-between md:flex-row ">
-        <img className="w-44  md:mx-0" src={NETFLIX_LOGO} alt="netflix-logo" />
+      <div className=" absolute w-screen h-20  px-8 py-2 z-20  justify-between bg-black sm:bg-slate-950 md:bg-black flex sm:flex-row md:flex-row ">
+        <img
+          className=" w-28 md:w-44 sm:w-44  md:mx-0  "
+          src={NETFLIX_LOGO}
+          alt="netflix-logo"
+        />
 
         {user && (
           <>
-            <div className="flex justify-between ">
-              <ul className="text-white flex  items-center space-x-5 cursor-pointer">
-                <li className="hover:text-gray-300 active:font-bold active:text-purple-900">
-                  <Link to="/browse">Home</Link>
-                </li>
-
-                <li className="hover:text-gray-300">Movies</li>
-                <li className="hover:text-gray-300">New & Popular</li>
-                <li className="hover:text-gray-300">My List</li>
-                <li className="hover:text-gray-300">Browse by Language</li>
-              </ul>
-            </div>
-
-            <div className="flex p-2  items-center space-x-6 ">
+            <div className="flex p-2  items-center space-x-3 md:space-x-6 sm:space-x-6 ">
               {gptSearch && (
                 <select
-                  className=" rounded-md px-2 outline-none"
+                  className=" w-22 rounded-md px-2 outline-none"
                   onChange={handleLanguageChange}
                 >
                   {SUPPORTED_LANGUAGES.map((lang) => (
@@ -103,7 +94,7 @@ const Header = () => {
                 <img className="w-9 h-9 rounded-md" src={User_Logo} alt="" />
 
                 <button
-                  className="text-white font-semibold hover:text-gray-200"
+                  className="text-white  hover:text-gray-200"
                   onClick={handleSignout}
                 >
                   Sign out

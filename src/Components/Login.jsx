@@ -91,59 +91,66 @@ const Login = () => {
   };
   return (
     <>
-      <div>
-        <Header />
-
-        <div className="absolute ">
-          <img src={Background_Image} alt="back-logo" />
-        </div>
-
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="  bg-black text-white  absolute w-4/12 bg-opacity-85 p-10 my-32  mx-auto right-0 left-0 flex flex-col"
-        >
-          <h1 className="text-white font-bold text-3xl my-5 mx-2 text-start">
-            {isSignIn ? "Sign In" : "Sign Up"}
-          </h1>
-          {!isSignIn && (
-            <input
-              ref={name}
-              type="text"
-              placeholder="Full Name"
-              className="p-4 m-2 bg-neutral-800 rounded-lg"
+      <>
+        <div className="">
+          <Header />
+          <div className="fixed ">
+            <img
+              src={Background_Image}
+              alt="back-logo "
+              className="h-screen w-screen object-cover"
             />
-          )}
-          <input
-            ref={email}
-            type="email"
-            placeholder="Email Address"
-            className="p-4 m-2 bg-neutral-800 rounded-lg"
-          />
+          </div>
 
-          <input
-            ref={password}
-            type="password"
-            placeholder="Password"
-            className="p-4 m-2 bg-neutral-800 rounded-lg"
-          />
-          <p className="text-red-700 py-2 m-2 font-semibold">{errorMessage}</p>
-          <button
-            className="p-2 m-2 bg-red-600 rounded-lg hover:bg-red-700"
-            onClick={handleButtonCLick}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="  bg-black text-white   absolute w-2/3 p-5 sm:w-1/2 sm:p-8 md:w-4/12 bg-opacity-85 md:p-3 my-32  mx-auto right-0 left-0 flex flex-col"
           >
-            {isSignIn ? "Sign In" : "Sign Up"}
-          </button>
+            <h1 className="text-white font-bold text-xl my-3 sm:text-2xl md:text-3xl md:my-5 mx-2 text-start">
+              {isSignIn ? "Sign In" : "Sign Up"}
+            </h1>
+            {!isSignIn && (
+              <input
+                ref={name}
+                type="text"
+                placeholder="Full Name"
+                className="p-2 md:p-3 m-2 bg-neutral-800 rounded-lg"
+              />
+            )}
+            <input
+              ref={email}
+              type="email"
+              placeholder="Email Address"
+              className="p-2 md:p-3 m-2  bg-neutral-800 rounded-lg"
+            />
 
-          <p
-            onClick={handleSignInForm}
-            className="text-white font-thin p-2 my-3 cursor-pointer"
-          >
-            {isSignIn
-              ? "New to Netflix? Sign Up"
-              : "Alredy Registered? Sign In"}
-          </p>
-        </form>
-      </div>
+            <input
+              ref={password}
+              type="password"
+              placeholder="Password"
+              className="p-2 md:p-3 m-2  bg-neutral-800 rounded-lg"
+            />
+            <p className="text-red-700 py-2 m-2 font-semibold">
+              {errorMessage}
+            </p>
+            <button
+              className=" p-1 md:p-2 sm:p-2 m-2 bg-red-600 rounded-lg hover:bg-red-700"
+              onClick={handleButtonCLick}
+            >
+              {isSignIn ? "Sign In" : "Sign Up"}
+            </button>
+
+            <p
+              onClick={handleSignInForm}
+              className="text-white font-thin p-2 my-3 cursor-pointer"
+            >
+              {isSignIn
+                ? "New to Netflix? Sign Up"
+                : "Alredy Registered? Sign In"}
+            </p>
+          </form>
+        </div>
+      </>
     </>
   );
 };
