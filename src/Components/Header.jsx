@@ -6,6 +6,7 @@ import { auth } from "../Utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addUser, removeUser } from "../Slices/userSlice";
+
 import {
   NETFLIX_LOGO,
   SUPPORTED_LANGUAGES,
@@ -42,11 +43,11 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse");
+        navigate("/");
       } else {
         // User is signed out
         dispatch(removeUser());
-        navigate("/");
+        navigate("/login");
       }
     });
     return () => unsubscribe;
@@ -71,6 +72,23 @@ const Header = () => {
 
         {user && (
           <>
+            <div className="text-white flex items-center start-0 w-3/6 ">
+              <ul className="flex flex-row space-x-3 cursor-pointer  ">
+                <li className="hover:text-slate-300">
+                  <Link to="/">Home</Link>
+                </li>
+                <li className="hover:text-slate-300">
+                  <Link to="/movies">Movies</Link>
+                </li>
+                <li className="hover:text-slate-300">
+                  <Link to="/tvshows">TV Shows</Link>
+                </li>
+                <li className="hover:text-slate-300">
+                  <Link to="/new&popular">New & Popular</Link>
+                </li>
+              </ul>
+            </div>
+
             <div className="flex p-2  items-center space-x-3 md:space-x-6 sm:space-x-6 ">
               {gptSearch && (
                 <select

@@ -1,31 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Login from "./Login";
 import Browse from "./Browse";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import GptMovieRecommendation from "./GptMovieRecommendation";
+
+import Movies from "./Movies/Movies";
+import TvShows from "./Tv Shows/TvShows";
+import NewAndPopular from "./New & Popular/NewAndPopular";
+import Header from "./Header";
 
 const Body = () => {
-  const appRoute = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/home",
-      element: <Browse />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-  ]);
-
-  return (
-    <>
-      <RouterProvider router={appRoute} />
-    </>
-  );
+  return <></>;
 };
 
 export default Body;

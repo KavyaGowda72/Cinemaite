@@ -22,7 +22,7 @@ const GptMovieRecommendation = () => {
 
 
   return (
-    <div className='p-6 my-10 md:m-6 bg-black w-screen opacity-90'>
+    <div className='p-6 my-10  bg-black w-screen  opacity-90'>
       <div>
        {movieNames.map((movieName,index)=>
         <MovieList key={movieName} title={movieName} movies={gptMovies[index]}/>

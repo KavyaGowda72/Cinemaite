@@ -8,7 +8,7 @@ const SecondatryContainer = () => {
   return (
     movies && (
       <div className="bg-zinc-950 w-screen ">
-        <div className=" mt-0 pl-4  md:-mt-64 md:pl-12 relative z-20">
+        <div className=" mt-0 pl-4  md:-mt-56 md:pl-12 relative z-20">
           {/* -mt-40 for overlaping */}
           <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
           <MovieList title={"Popular Movies"} movies={movies.popularMovies} />
